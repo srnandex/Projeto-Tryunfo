@@ -21,17 +21,36 @@ class App extends React.Component {
   }
 
   onInputChange(event) {
-    console.log(event.target.name);
     const check = (event.target.type === 'checkbox')
       ? event.target.checked : event.target.value;
     this.setState({
       [event.target.name]: check,
+    }, () => {
+      const { state } = this;
+      const numAr = [state.cardAttr3, state.cardAttr2, state.cardAttr1];
+      const tagAr = [state.cardName, state.cardDescription, state.cardImage];
+      const result = numAr.map((parseNum) => parseInt(parseNum, 10))
+        .reduce((num1, num2) => num1 + num2);
+      const veriComplete = tagAr.every((comple) => comple !== '');
+      const lintChato = 90;
+      const veriNum = numAr.every((num) => num >= 0 && num <= lintChato);
+      const maxValue = 210;
+      if (result <= maxValue
+        && veriComplete === true
+        && veriNum === true) {
+        this.setState({
+          isSaveButtonDisabled: false,
+        });
+      } else {
+        this.setState({
+          isSaveButtonDisabled: true,
+        });
+      }
     });
   }
 
   render() {
     const { state } = this;
-    console.log(state);
     return (
       <main>
         <h1>Tryunfo</h1>
