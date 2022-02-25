@@ -19,7 +19,6 @@ class Form extends React.Component {
       onSaveButtonClick } = this.props;
     return (
       <form id="formulario">
-        { hasTrunfo }
         <label htmlFor="name-input">
           Nome
           <input
@@ -31,7 +30,6 @@ class Form extends React.Component {
             onChange={ onInputChange }
           />
         </label>
-
         <label htmlFor="description-input">
           Descrição
           <textarea
@@ -44,7 +42,6 @@ class Form extends React.Component {
             rows="10"
           />
         </label>
-
         <label htmlFor="attr1-input">
           Attr01
           <input
@@ -58,7 +55,6 @@ class Form extends React.Component {
             onChange={ onInputChange }
           />
         </label>
-
         <label htmlFor="attr2-input">
           Attr02
           <input
@@ -72,7 +68,6 @@ class Form extends React.Component {
             onChange={ onInputChange }
           />
         </label>
-
         <label htmlFor="attr3-input">
           Attr03
           <input
@@ -113,18 +108,20 @@ class Form extends React.Component {
             <option id="muito raro" value="muito raro">muito raro</option>
           </select>
         </label>
-
-        <label htmlFor="trunfo-input">
-          Super Trybe Trunfo
-          <input
-            data-testid="trunfo-input"
-            id="trunfo-input"
-            type="checkbox"
-            name="cardTrunfo"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-          />
-        </label>
+        {(hasTrunfo() === false)
+          ? <p>Você já tem um Super Trunfo em seu baralho</p>
+          : (
+            <label htmlFor="trunfo-input">
+              Super Trybe Trunfo
+              <input
+                data-testid="trunfo-input"
+                id="trunfo-input"
+                type="checkbox"
+                name="cardTrunfo"
+                checked={ cardTrunfo }
+                onChange={ onInputChange }
+              />
+            </label>)}
 
         <input
           data-testid="save-button"

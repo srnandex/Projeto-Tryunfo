@@ -16,18 +16,19 @@ class App extends React.Component {
       cardRare: 'Normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
+      baralho: [],
     };
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
   }
 
-  onInputChange(event) {
+  hasTrunfo = ({ state } = this) => state.baralho
+    .every((espeCard) => espeCard.trunfocard !== true);
+
+  onInputChange = (event) => {
     const check = (event.target.type === 'checkbox')
       ? event.target.checked : event.target.value;
     this.setState({
       [event.target.name]: check,
-    }, () => {
-      const { state } = this;
+    }, ({ state } = this) => {
       const numAr = [state.cardAttr3, state.cardAttr2, state.cardAttr1];
       const tagAr = [state.cardName, state.cardDescription, state.cardImage];
       const result = numAr.map((parseNum) => parseInt(parseNum, 10))
@@ -50,8 +51,9 @@ class App extends React.Component {
     });
   }
 
-  onSaveButtonClick() {
-    this.setState({
+  onSaveButtonClick = () => {
+    const { state } = this;
+    this.setState((prevDefault) => ({
       cardName: '',
       cardDescription: '',
       cardAttr1: '0',
@@ -61,7 +63,18 @@ class App extends React.Component {
       cardRare: 'Normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
-    });
+      baralho: [...prevDefault.baralho, {
+        namecard: state.cardName,
+        descriptioncard: state.cardDescription,
+        attr1card: state.cardAttr1,
+        attr2card: state.cardAttr2,
+        attr3card: state.cardAttr3,
+        imagecard: state.cardImage,
+        rarecard: state.cardRare,
+        trunfocard: state.cardTrunfo,
+        disabledisSaveButton: true,
+      }],
+    }));
   }
 
   render() {
@@ -82,6 +95,7 @@ class App extends React.Component {
             isSaveButtonDisabled={ state.isSaveButtonDisabled }
             onInputChange={ this.onInputChange }
             onSaveButtonClick={ this.onSaveButtonClick }
+            hasTrunfo={ this.hasTrunfo }
           />
           <Card
             cardName={ state.cardName }
