@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   hasTrunfo = ({ state } = this) => state.baralho
-    .every((espeCard) => espeCard.trunfocard !== true);
+    .some((espeCard) => espeCard.trunfocard === true);
 
   onInputChange = (event) => {
     const check = (event.target.type === 'checkbox')
@@ -95,7 +95,7 @@ class App extends React.Component {
             isSaveButtonDisabled={ state.isSaveButtonDisabled }
             onInputChange={ this.onInputChange }
             onSaveButtonClick={ this.onSaveButtonClick }
-            hasTrunfo={ this.hasTrunfo }
+            hasTrunfo={ this.hasTrunfo() }
           />
           <Card
             cardName={ state.cardName }
