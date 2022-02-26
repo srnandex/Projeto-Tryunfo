@@ -108,6 +108,18 @@ class App extends React.Component {
             cardTrunfo={ state.cardTrunfo }
           />
         </div>
+        {state.baralho.map((el) => (
+          <Card
+            cardName={ el.namecard }
+            key={ el.namecard }
+            cardDescription={ el.descriptioncard }
+            cardAttr1={ el.attr1card }
+            cardAttr2={ el.attr2card }
+            cardAttr3={ el.attr3card }
+            cardImage={ el.imagecard }
+            cardRare={ el.rarecard }
+            cardTrunfo={ el.trunfocard }
+          />))}
       </main>
     );
   }
