@@ -81,32 +81,40 @@ class App extends React.Component {
     const { state } = this;
     return (
       <main>
-        <h1>Tryunfo</h1>
-        <div id="formCard">
-          <Form
-            cardName={ state.cardName }
-            cardDescription={ state.cardDescription }
-            cardAttr1={ state.cardAttr1 }
-            cardAttr2={ state.cardAttr2 }
-            cardAttr3={ state.cardAttr3 }
-            cardImage={ state.cardImage }
-            cardRare={ state.cardRare }
-            cardTrunfo={ state.cardTrunfo }
-            isSaveButtonDisabled={ state.isSaveButtonDisabled }
-            onInputChange={ this.onInputChange }
-            onSaveButtonClick={ this.onSaveButtonClick }
-            hasTrunfo={ this.hasTrunfo() }
-          />
-          <Card
-            cardName={ state.cardName }
-            cardDescription={ state.cardDescription }
-            cardAttr1={ state.cardAttr1 }
-            cardAttr2={ state.cardAttr2 }
-            cardAttr3={ state.cardAttr3 }
-            cardImage={ state.cardImage }
-            cardRare={ state.cardRare }
-            cardTrunfo={ state.cardTrunfo }
-          />
+        <header className="headerpag titlewhite">
+          <h1>Tryunfo</h1>
+        </header>
+        <div className="form-preview">
+          <div className="form">
+            <h1 className="title">Add Card</h1>
+            <Form
+              cardName={ state.cardName }
+              cardDescription={ state.cardDescription }
+              cardAttr1={ state.cardAttr1 }
+              cardAttr2={ state.cardAttr2 }
+              cardAttr3={ state.cardAttr3 }
+              cardImage={ state.cardImage }
+              cardRare={ state.cardRare }
+              cardTrunfo={ state.cardTrunfo }
+              isSaveButtonDisabled={ state.isSaveButtonDisabled }
+              onInputChange={ this.onInputChange }
+              onSaveButtonClick={ this.onSaveButtonClick }
+              hasTrunfo={ this.hasTrunfo() }
+            />
+          </div>
+          <div className="cardpreview">
+            <h1 className="title titlewhite">Preview</h1>
+            <Card
+              cardName={ state.cardName }
+              cardDescription={ state.cardDescription }
+              cardAttr1={ state.cardAttr1 }
+              cardAttr2={ state.cardAttr2 }
+              cardAttr3={ state.cardAttr3 }
+              cardImage={ state.cardImage }
+              cardRare={ state.cardRare }
+              cardTrunfo={ state.cardTrunfo }
+            />
+          </div>
         </div>
         {state.baralho.map((el) => (
           <Card

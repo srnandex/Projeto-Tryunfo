@@ -1,3 +1,100 @@
 * {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+.sectionCard {
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 3px black;
+  display: flex;
+  height: 545px;
+  justify-content: center;
+  width: 365px;
+}
+
+.sectionCard:hover {
+  box-shadow: 0 0 10px black;
+}
+
+.greencard {
+  align-items: center;
+  background-color: #036b52;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 97%;
+  width: 95%;
+}
+
+.nameCard {
+  background-color: #023031;
+  border-radius: 10px 10px 0 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+  height: 40px;
+  justify-content: center;
+  margin-top: 18px;
+  padding-right: 13px;
+  text-align: end;
+  width: 90%;
+}
+
+.cardimage {
+  background-color: white;
+  height: 200px;
+  width: 90%;
+}
+
+.cardimage img {
+  height: 100%;
+  width: 100%;
+}
+
+.descriptioncard {
+  align-items: center;
+  background-color: #036b52;
+  color: white;
+  display: flex;
+  font-size: small;
+  height: 60px;
+  justify-content: center;
+  width: 90%;
+}
+
+.att {
+  align-items: center;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  height: 195px;
+  justify-content: center;
+  width: 90%;
+}
+
+.atticons {
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  padding: 5px;
+  width: 250px;
+}
+
+.numberatt {
+  margin-left: 5px;
+}
+
+.raridade {
+  margin: 5px 0;
+}
+
+.trunf {
+  color: #023031;
+  font-size: 20px;
+  font-style: italic;
 }

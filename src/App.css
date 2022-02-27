@@ -1,3 +1,37 @@
 * {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+.headerpag {
+  background-color: #023031;
+  padding: 10px 0 10px 50px;
+}
+
+.form-preview {
+  display: flex;
+}
+
+.form {
+  width: 50%;
+}
+
+.cardpreview {
+  background-color: #023031;
+  height: 750px;
+  width: 50%;
+}
+
+.cardpreview section {
+  margin: 50px auto;
+}
+
+.title {
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.titlewhite {
+  color: white;
 }
