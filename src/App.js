@@ -113,6 +113,7 @@ class App extends React.Component {
               cardImage={ state.cardImage }
               cardRare={ state.cardRare }
               cardTrunfo={ state.cardTrunfo }
+              btnExcluirCarta={ false }
             />
           </div>
         </div>
@@ -127,6 +128,7 @@ class App extends React.Component {
             cardImage={ el.imagecard }
             cardRare={ el.rarecard }
             cardTrunfo={ el.trunfocard }
+            btnExcluirCarta
           />))}
       </main>
     );

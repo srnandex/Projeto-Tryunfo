@@ -12,7 +12,8 @@ class Card extends React.Component {
       cardAttr3,
       cardImage,
       cardRare,
-      cardTrunfo } = this.props;
+      cardTrunfo,
+      btnExcluirCarta } = this.props;
     return (
       <section className="sectionCard">
         <div className="greencard">
@@ -27,15 +28,15 @@ class Card extends React.Component {
           </div>
           <div className="att">
             <h3 className="atticons" data-testid="attr1-card">
-              Attr01....................................
+              Attr01...............................
               <span className="numberatt">{ cardAttr1 }</span>
             </h3>
             <h3 className="atticons" data-testid="attr2-card">
-              Attr02....................................
+              Attr02...............................
               <span className="numberatt">{ cardAttr2 }</span>
             </h3>
             <h3 className="atticons" data-testid="attr3-card">
-              Attr03....................................
+              Attr03...............................
               <span className="numberatt">{ cardAttr3 }</span>
             </h3>
             <p className="raridade" data-testid="rare-card">{cardRare}</p>
@@ -46,20 +47,23 @@ class Card extends React.Component {
                 </p>) : undefined }
           </div>
         </div>
+        { btnExcluirCarta && (
+          <button type="button" data-testid="delete-button">Excluir</button>) }
       </section>
     );
   }
 }
 
 Card.propTypes = {
-  cardName: PropTypes.string.isRequired,
-  cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
-  cardImage: PropTypes.string.isRequired,
-  cardRare: PropTypes.string.isRequired,
-  cardTrunfo: PropTypes.bool.isRequired,
-};
+  cardName: PropTypes.string,
+  cardDescription: PropTypes.string,
+  cardAttr1: PropTypes.string,
+  cardAttr2: PropTypes.string,
+  cardAttr3: PropTypes.string,
+  cardImage: PropTypes.string,
+  cardRare: PropTypes.string,
+  cardTrunfo: PropTypes.bool,
+  btnExcluirCarta: PropTypes.bool,
+}.isRequired;
 
 export default Card;
